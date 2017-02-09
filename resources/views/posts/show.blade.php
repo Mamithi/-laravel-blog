@@ -37,6 +37,10 @@
 					</div>
 				</div>
 
+				<div class="row">
+					{{ Html::linkRoute('posts.index', '<< See All Posts', [], ['class' => 'btn btn-default btn-block btn-h1-spacing' ]) }}
+				</div>
+
 			</div>
 		</div>
 	</div>
