@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')-> paginate(5);
         return view('posts.index')->withPosts($posts);
     }
 
@@ -123,5 +123,12 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::Find($id);
+
+        $post->delete();
+
+        Session::flash('success', 'The post was successfully deleted');
+
+        return redirect()->route('posts.index');
     }
 }
